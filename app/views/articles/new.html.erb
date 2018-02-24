@@ -1,5 +1,23 @@
+<div class="row">
+<div class="container">
 <h1>New Article</h1>
 <%= form_with scope: :article, url: articles_path, local: true do |form| %>
+
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      
+      
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      
+    </div>
+  <% end %>
+
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
@@ -14,3 +32,7 @@
     <%= form.submit %>
   </p>
 <% end %>
+
+<%= link_to 'Back', articles_path %>
+</div>
+</div>

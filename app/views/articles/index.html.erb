@@ -1,16 +1,41 @@
 <h1>Listing articles</h1>
- 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-  </tr>
- 
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-    </tr>
-  <% end %>
-</table>
+<% @articles.each do |article| %>
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<div id="postlist">
+			<div class="panel">
+                <div class="panel-heading">
+                    <div class="text-center">
+                        <div class="row">
+                            <div class="col-sm-9">
+                            <h3 class="pull-left"><%= article.title %></h3>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 class="pull-right">
+                                <small><%= article.created_at.strftime("%d %B %Y") %></small>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            <div class="panel-body">
+                <%= truncate(article.text, :length => 150, :seperator => ' ...')  %>
+                <%= link_to 'Read more', article_path(article) %>
+            </div>
+            
+            <div class="panel-footer">
+                <span class="label label-default">Image</span> <span class="label label-default">Updates</span> <span class="label label-default">July</span>
+            </div>
+        </div>
+    </div>
+</div>
+	<div class="col-md-1"></div>
+	<div class="col-md-3">
+	</div>
+	<div class="col-md-1">
+	</div>
+</div>
+</div>
+<% end %>
