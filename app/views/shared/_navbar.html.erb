@@ -10,9 +10,9 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Host", "#", class: "navbar-opus-item navbar-opus-link" %>
-      <%= link_to "Trips", "#", class: "navbar-opus-item navbar-opus-link" %>
-      <%= link_to "Messages", "#", class: "navbar-opus-item navbar-opus-link" %>
+      <%= link_to "New", new_article_path, class: "navbar-opus-item navbar-opus-link" %>
+      <%= link_to "Articles", articles_path, class: "navbar-opus-item navbar-opus-link" %>
+      <%= link_to "Ideas", "#", class: "navbar-opus-item navbar-opus-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-opus-item">
@@ -25,8 +25,8 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <%= link_to admin_root_path do %>
+                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Admin") %>
               <% end %>
             </li>
             <li>
