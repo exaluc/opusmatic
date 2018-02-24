@@ -19,10 +19,6 @@ gem 'webpacker'
 
 gem 'activeadmin'
 
-gem 'inherited_resources'
-gem 'groupdate'
-gem 'chartkick'
-
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
