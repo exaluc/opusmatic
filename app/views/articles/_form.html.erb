@@ -1,0 +1,32 @@
+<div class="row">
+<div class="container">
+<%= form_with model: @article, local: true do |form| %>
+
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+        <div class="alert alert-warning alert-dismissible" role="alert">
+         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+ 
+  <p> 
+    <%= form.label :text %><br>
+    <%= form.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+</div>
+</div>
