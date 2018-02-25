@@ -1,5 +1,5 @@
 ActiveAdmin.register Article do
-    permit_params :tite, :text
+    permit_params :title, :text
   
     index do
       selectable_column
