@@ -11,6 +11,10 @@ class ArticlesController < ApplicationController
       @article = Article.new
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
   def create
     @article = Article.new(article_params)
         
@@ -18,6 +22,16 @@ class ArticlesController < ApplicationController
       redirect_to @article, notice: "The article has been successfully created."
     else
       render action: 'new'
+    end  
+  end
+
+  def update
+    @article = Article.find(params[:id])
+        
+    if @article.update(article_params)
+      redirect_to @article, notice: "The article has been successfully updated."
+    else
+      render action: 'edit'
     end  
   end
 
